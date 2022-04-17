@@ -30,7 +30,7 @@ jobs:
         iterationData: Newman_2022April18/IterationData.json
         reporters: cli
         bail: false
-        suppressExitCode: true
+        suppressExitCode: false
 
     # 3. View Test Results in Console
     - name: Output summary to console
