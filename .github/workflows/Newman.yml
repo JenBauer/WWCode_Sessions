@@ -28,6 +28,7 @@ jobs:
       with:
         collection: Newman_2022April18/Collection.json
         iterationData: Newman_2022April18/IterationData.json
+        iterationCount: 3 #Does this need to be specified manually?
         reporters: cli
         bail: false
         suppressExitCode: false
