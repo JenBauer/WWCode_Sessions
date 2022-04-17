@@ -29,6 +29,7 @@ jobs:
         collection: Newman_2022April18/Collection.json
         iterationData: Newman_2022April18/IterationData.json
         reporters: cli
+        bail: false
         suppressExitCode: true
 
     # 3. View Test Results in Console
