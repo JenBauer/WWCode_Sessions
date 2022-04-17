@@ -1,0 +1,13 @@
+- name: Checkout
+  uses: actions/checkout@v1
+
+- name: Run Newman
+  id: run-newman
+  uses: anthonyvscode/newman-action@v1
+  with:
+    collection: Collection.json
+    iterationData: IterationData.json
+    reporters: cli
+
+- name: Output summary to console
+  run: echo ${{ steps.run-newman.outputs.summary }}
