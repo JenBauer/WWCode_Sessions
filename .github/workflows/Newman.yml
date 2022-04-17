@@ -28,10 +28,11 @@ jobs:
       with:
         collection: Newman_2022April18/Collection.json
         iterationData: Newman_2022April18/IterationData.json
-        iterationCount: 3 #Does this need to be specified manually?
+        iterationCount: 3 #This needs to be specified manually!  Will just run one iteration (first object) if not set to the correct number!
+        delayRequest: 1
         reporters: cli
         bail: false
-        suppressExitCode: false
+        suppressExitCode: true
 
     # 3. View Test Results in Console
     - name: Output summary to console
