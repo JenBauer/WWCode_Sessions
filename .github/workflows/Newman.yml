@@ -29,7 +29,7 @@ jobs:
         collection: Newman_2022April18/Collection.json
         iterationData: Newman_2022April18/IterationData.json
         reporters: cli
-        bail: true
+        bail: false
 
     # 3. View Test Results in Console
     - name: Output summary to console
