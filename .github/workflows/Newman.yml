@@ -1,13 +1,35 @@
-- name: Checkout
-  uses: actions/checkout@v1
+# Action Name
+name: Run Newman as a GitHub Action
 
-- name: Run Newman
-  id: run-newman
-  uses: anthonyvscode/newman-action@v1
-  with:
-    collection: Collection.json
-    iterationData: IterationData.json
-    reporters: cli
+# How is this action triggered?
+on:
+  push: #Trigger when pushed to the main branch
+    branches:
+    - main
+  schedule: #Run on a schedule
+  - cron: "0 1 * * 1-5"
+  workflow_dispatch: #Trigger manually
 
-- name: Output summary to console
-  run: echo ${{ steps.run-newman.outputs.summary }}
+# This is the job that will run.
+jobs:
+  test-api:
+    runs-on: ubuntu-latest
+
+    # These are the steps within the job.
+    steps: 
+    # 1. Checkout Repository
+    - name: Checkout Repository
+      uses: actions/checkout@v1
+
+    # 2. Run Newman with params
+    - name: Run Newman
+      id: run-newman
+      uses: anthonyvscode/newman-action@v1
+      with:
+        collection: Collection.json
+        iterationData: IterationData.json
+        reporters: cli
+
+    # 3. View Test Results in Console
+    - name: Output summary to console
+      run: echo ${{ steps.run-newman.outputs.summary }}
